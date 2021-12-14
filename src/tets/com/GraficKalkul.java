@@ -1,3 +1,4 @@
+package tets.com;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -43,6 +44,36 @@ class CalculatorPanel extends JPanel{
         display.setEnabled(false);
         display.setFont(display.getFont().deriveFont(50f));//Создает новый объект шрифта, копируя текущий объект шрифта и применяя к нему новый размер
         add(display, BorderLayout.NORTH);
+        ActionListener insert = new InsertAction();
+        ActionListener command = new CommandAction();
+        panel = new JPanel();
+        panel.setLayout(new GridLayout(4,4));
+        addButton("7", insert);
+        addButton("8", insert);
+        addButton("9", insert);
+        addButton("/", insert);
+        addButton("4", insert);
+        addButton("5", insert);
+        addButton("6", insert);
+        addButton("*", insert);
+        addButton("1", insert);
+        addButton("2", insert);
+        addButton("3", insert);
+        addButton("-", insert);
+        addButton("0", insert);
+        addButton(".", insert);
+        addButton("=", insert);
+        addButton("+", insert);
+        add(panel, BorderLayout.CENTER);
     }
 }
+    private void addButton (String label, ActionListener listener){
+        JButton button = new JButton(label);
+        button.setFont(button.getFont().deriveFont(20f));
+        button.addActionListener(listener);
+        panel.add(button);
+    }
+private class InsertAction implements ActionListener{}
+private class CommandAction implements ActionListener{}
+
 

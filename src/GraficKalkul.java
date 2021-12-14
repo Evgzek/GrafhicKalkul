@@ -29,5 +29,16 @@ class CalculatorFrame extends JFrame{
     }
 }
 class CalculatorPanel extends JPanel{
+    private JButton display;
+    private JPanel panel;
+    private BigDecimal result;//для вычисления с более высокой точностью
+    private String lastCommand;
+    private boolean start;
+    public CalculatorPanel(){
+        setLayout(new BorderLayout());//Создает новый макет границы без пробелов между компонентами
+        result = BigDecimal.ZERO;
+        lastCommand = "=";
+        start = true;
+    }
 }
 

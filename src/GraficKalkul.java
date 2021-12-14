@@ -39,6 +39,10 @@ class CalculatorPanel extends JPanel{
         result = BigDecimal.ZERO;
         lastCommand = "=";
         start = true;
+        display = new JButton("0");
+        display.setEnabled(false);
+        display.setFont(display.getFont().deriveFont(50f));//Создает новый объект шрифта, копируя текущий объект шрифта и применяя к нему новый размер
+        add(display, BorderLayout.NORTH);
     }
 }
 

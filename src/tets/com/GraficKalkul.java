@@ -73,7 +73,23 @@ class CalculatorPanel extends JPanel{
         button.addActionListener(listener);
         panel.add(button);
     }
-private class InsertAction implements ActionListener{}
-private class CommandAction implements ActionListener{}
+private class InsertAction implements ActionListener{
+}
+private class CommandAction implements ActionListener {
+    public void actionPerformed(ActionEvent event) {
+        String command = event.getActionCommand();
+        if (start) {
+            if (command.equals("-")) {
+                start = false;
+            } else lastCommand = command;
+        } else {
+            calculate(new BigDecimal(display.getText()));
+            lastCommand = command;
+            start = true;
+        }
+    }
+}
+public void calculate (BigDecimal x){
+}
 
 
